@@ -1,0 +1,9 @@
+# Donos do código — revisores automáticos por caminho.
+# Substitua pelos handles/equipes reais quando o time for definido.
+
+*                       @lumina-finance/maintainers
+
+/src/modules/           @lumina-finance/product
+/src/components/ui/     @lumina-finance/design-system
+/docs/                  @lumina-finance/maintainers
+/.github/               @lumina-finance/maintainers

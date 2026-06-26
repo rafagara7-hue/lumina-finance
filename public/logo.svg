@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" width="220" height="40" role="img" aria-label="Lumina Finance">
+  <defs>
+    <linearGradient id="lf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12c8ad" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="4" width="32" height="32" rx="8" fill="url(#lf)" />
+  <path d="M7 27V13m0 14h18M12 22l5-6 4 3.2L26 14"
+        fill="none" stroke="#ffffff" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round" />
+  <text x="44" y="26" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="currentColor">
+    Lumina <tspan fill="#12c8ad">Finance</tspan>
+  </text>
+</svg>

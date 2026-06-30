@@ -30,3 +30,12 @@ export const demoSession: Session = {
   permissions: ROLE_PERMISSIONS[demoUser.role],
   expiresAt: '2026-12-31T23:59:59.000Z',
 };
+
+/**
+ * Demo/DEV credentials shown on the login screen. There is no real auth gate yet,
+ * so these simply let anyone walk through the login into the dashboard demo.
+ */
+export const demoCredentials = {
+  email: 'dev@lumina.finance',
+  password: 'lumina-dev-2026',
+} as const;

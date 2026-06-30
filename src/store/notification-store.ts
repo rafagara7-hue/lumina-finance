@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 import type { AppNotification } from '@/types';
+import { notifications as seedNotifications } from '@/modules/notifications/mock';
 
 interface NotificationState {
   notifications: AppNotification[];
@@ -13,7 +14,8 @@ interface NotificationState {
 }
 
 export const useNotificationStore = create<NotificationState>((set, get) => ({
-  notifications: [],
+  // Seeded so the bell badge and list render immediately (no hydration flash).
+  notifications: seedNotifications,
   setNotifications: (notifications) => set({ notifications }),
   add: (notification) =>
     set((state) => ({ notifications: [notification, ...state.notifications] })),

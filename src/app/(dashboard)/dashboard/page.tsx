@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { Download } from 'lucide-react';
 
 import { PageHeader } from '@/components/page-header';
-import { Button } from '@/components/ui/button';
 import {
   BreakdownCard,
+  ExportButton,
   MetricsGrid,
   RecentTransactions,
   RevenueOverview,
@@ -18,9 +17,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <PageHeader title="Dashboard" description="Visão geral da saúde financeira da sua empresa.">
-        <Button variant="outline" size="sm">
-          <Download className="h-4 w-4" /> Exportar
-        </Button>
+        <ExportButton />
       </PageHeader>
 
       <MetricsGrid />

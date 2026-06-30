@@ -4,6 +4,7 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
+  Legend,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -41,24 +42,31 @@ export function RevenueAreaChart({ data, height = 300 }: RevenueAreaChartProps) 
           dataKey="label"
           tickLine={false}
           axisLine={false}
-          stroke={chartColors.axis}
-          fontSize={12}
+          tick={{ fill: chartColors.axis, fontSize: 12 }}
         />
         <YAxis
           tickLine={false}
           axisLine={false}
-          stroke={chartColors.axis}
-          fontSize={12}
+          tick={{ fill: chartColors.axis, fontSize: 12 }}
           width={64}
           tickFormatter={(value: number) => formatCompactCurrency(value)}
         />
         <Tooltip
           contentStyle={tooltipStyle}
-          formatter={(value: number) => formatCompactCurrency(value)}
+          formatter={(value: number, name) => [formatCompactCurrency(value), name]}
+        />
+        <Legend
+          verticalAlign="top"
+          align="right"
+          height={36}
+          iconType="circle"
+          iconSize={9}
+          wrapperStyle={{ fontSize: 12 }}
         />
         <Area
           type="monotone"
           dataKey="value"
+          name="Receita"
           stroke={chartColors.series[0]}
           strokeWidth={2}
           fill="url(#revenueGradient)"

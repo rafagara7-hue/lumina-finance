@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Terminal } from 'lucide-react';
@@ -56,9 +57,9 @@ export function LoginForm() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label htmlFor="password">Senha</Label>
-            <a href={ROUTES.forgotPassword} className="text-xs text-brand hover:underline">
+            <Link href={ROUTES.forgotPassword} className="text-xs text-brand hover:underline">
               Esqueceu a senha?
-            </a>
+            </Link>
           </div>
           <Input id="password" type="password" placeholder="••••••••" {...register('password')} />
           {errors.password ? (

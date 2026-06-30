@@ -2,6 +2,8 @@
 
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
+import { formatCompactCurrency } from '@/utils/format';
+
 import { chartColors, tooltipStyle } from './chart-theme';
 
 export interface DonutDatum {
@@ -14,7 +16,7 @@ interface BreakdownDonutChartProps {
   height?: number;
 }
 
-/** Donut chart for revenue/category breakdowns. */
+/** Donut chart for revenue/category breakdowns, with currency-formatted tooltip. */
 export function BreakdownDonutChart({ data, height = 260 }: BreakdownDonutChartProps) {
   return (
     <ResponsiveContainer width="100%" height={height}>
@@ -32,7 +34,10 @@ export function BreakdownDonutChart({ data, height = 260 }: BreakdownDonutChartP
             <Cell key={entry.label} fill={chartColors.series[index % chartColors.series.length]} />
           ))}
         </Pie>
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          contentStyle={tooltipStyle}
+          formatter={(value: number, name) => [formatCompactCurrency(value), name]}
+        />
       </PieChart>
     </ResponsiveContainer>
   );

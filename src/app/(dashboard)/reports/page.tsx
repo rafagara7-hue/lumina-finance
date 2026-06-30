@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { Download, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 import { formatDate } from '@/utils/format';
 import { PageHeader } from '@/components/page-header';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { reports } from '@/modules/reports';
+import { ReportDownloadButton, reports } from '@/modules/reports';
 
 export const metadata: Metadata = {
   title: 'Relatórios',
@@ -38,9 +37,7 @@ export default function ReportsPage() {
                 <span className="text-xs text-muted-foreground">
                   {report.period} · {formatDate(report.generatedAt)}
                 </span>
-                <Button variant="ghost" size="icon" aria-label="Baixar relatório">
-                  <Download className="h-4 w-4" />
-                </Button>
+                <ReportDownloadButton report={report} />
               </div>
             </CardContent>
           </Card>

@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 import { hasPermission } from '@/constants/permissions';
 import type { Permission, Session, User } from '@/types';
+import { demoSession } from '@/modules/auth/seed';
 
 interface AuthState {
   session: Session | null;
@@ -18,8 +19,10 @@ interface AuthState {
  * mirror lets components read the current user and permissions synchronously.
  */
 export const useAuthStore = create<AuthState>((set, get) => ({
-  session: null,
-  isAuthenticated: false,
+  // Seeded with the demo session so the shell (nav, user, permissions) renders
+  // immediately on first paint — no hydration flash. Swap for a real session later.
+  session: demoSession,
+  isAuthenticated: true,
   setSession: (session) => set({ session, isAuthenticated: Boolean(session) }),
   logout: () => set({ session: null, isAuthenticated: false }),
   can: (permission) => {
